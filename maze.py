@@ -9,15 +9,10 @@ def make_maze(width=10, height=10, random_maze=False):
         maze.append(column)
         for j in range(height):
             if random_maze:
-                top = random.randrange(0,2) == 0
-                right = random.randrange(0,2) == 0
-                bottom = random.randrange(0,2) == 0
-                left = random.randrange(0,2) == 0
-                visited = random.randrange(0,2) == 0
-                newNode = [top, right, bottom, left, visited]
+                newNode = [random.choice([True, False]) for _ in range(5)]
             else:
                 # top, right, bottom, left, visited flags
-                newNode = [False, False, False, False, False]
+                newNode = [False] * 5
             column.append(newNode)
     return maze
 
